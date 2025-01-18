@@ -1,0 +1,236 @@
+/* Updated Dashboard Cards Layout */
+.dashboard-cards {
+  display: flex;
+  gap: 20px; /* Space between cards */
+  margin: 20px;
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+  justify-content: center;
+} 
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 15px;
+  height: auto; /* Allow flexible height */
+  min-height: 220px;
+  max-height: 250px; /* Optional max height */
+  max-width: 400px;
+  min-width: 280px;
+  flex: 1 1 calc(33.33% - 20px); /* Three cards per row, with a gap */
+  display: flex;
+  flex-direction: column; /* Stack content vertically */
+  gap: 10px;
+  overflow: hidden; /* Avoid content spilling */
+  transition: flex 0.3s ease;
+}
+
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 1rem;
+  color: #7a7a7a;
+}
+
+.total-balance-card {
+  background: linear-gradient(to right, #3f3e39, #adebb3);
+  color: white;
+}
+
+.total-balance-card .balance-placeholder {
+  color: #ffffff;
+}
+
+/* Segment Toggle Styles */
+.header-container {
+  display: flex;
+  width: 100%;
+}
+
+.header {
+  padding: 5px 7px;
+  flex: 1;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: bold;
+  border-radius: 7px 8px 8px; /* Rounded top corners */
+}
+
+.header.active {
+  background-color: #f5f5f5; /* Ash color for active header */
+}
+
+.header {
+  background-color: #d9d9d9; /* Default grey color for inactive header */
+}
+
+.content {
+  flex-grow: 1; /* Allow the content to take remaining space */
+  padding: 16px;
+  border-radius: 0 0 5px 5px; /* Rounded bottom corners */
+  transition: opacity 0.3s ease-in-out;
+  /* gap: 10px; */
+}
+
+/* Individual Content Items */
+.content-item {
+  background-color: #efecec; /* White background for content items */
+  padding-left: 8px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  font-size: 1rem;
+  color: #aaa; /*Darker text color for readability */
+  margin-bottom: 20px;
+}
+
+.cashflow-content,
+.budget-content {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cashflow-content p,
+.budget-content p {
+  margin: 0;
+}
+
+/* Set text color for Income */
+.income-text {
+  color: #4ecc5a !important;
+}
+
+/* Set text color for Expenses */
+.expenses-text {
+  color: red !important;
+}
+
+.budget-content p {
+  color: #aaa; /* Lighter color for the placeholder text */
+}
+
+/* Progress Bar */
+.progress-bar {
+  display: flex;
+  width: 100%; /* Responsive to card width */
+  /* max-width: 100%; Prevent exceeding the card width */
+  height: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+  margin-bottom: 10px;
+}
+
+.progress-segment {
+  min-width: 4px; /* Prevent collapsing at small widths */
+  flex-grow: 1; /* Let segments take equal space */
+  height: 100%;
+  transition: width 0.5s ease-in-out;
+  border: 1px solid #f9fcfb; /* Adds subtle dividers */
+}
+
+
+/* Round the first and last segment edges */
+.progress-segment:first-child {
+  border-radius: 12px 0 0 12px; /* Round left edge */
+}
+
+.progress-segment:last-child {
+  border-radius: 0 12px 12px 0; /* Round right edge */
+}
+
+/* Categories Grid */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.category-item {
+  text-align: center;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.color-circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.category-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.percentage {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Media Queries */
+
+@media (max-width: 1024px) {
+  .card {
+    flex: 1 1 calc(50% - 20px); /* Two cards per row */
+  }
+}
+
+
+
+/* Larger Progress Bar for Two Cards per Row */
+@media (min-width: 768px) {
+  .progress-bar {
+    height: 25px; /* Increase height for better visibility */
+  }
+}
+
+/* Even Larger Progress Bar for Three Cards per Row */
+@media (min-width: 1024px) {
+  .progress-bar {
+    height: 30px; /* Further increase height for large screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .progress-bar {
+    height: 35px; /* Increase height for large screens */
+  }
+}
+
+
+  
+
+@media (max-width: 768px) {
+  .dashboard-cards {
+    justify-content: flex-start; /* Align cards to the left */
+  }
+
+  .card {
+    flex: 1 1 calc(100% - 20px); /* Single card per row */
+    max-width: 100%; /* Allow full width */
+    padding: 15px; /* Reduce padding for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .progress-bar {
+    height: 15px; /* Reduce bar height on small screens */
+  }
+
+  .categories-grid {
+    grid-template-columns: 1fr; /* One category per row */
+  }
+}
