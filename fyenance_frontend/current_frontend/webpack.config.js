@@ -6,7 +6,8 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "./static/frontend"),
-    filename: "[name].[contenthash].js", // Use content hashing for cache busting
+    // filename: "[name].[contenthash].js", // Use content hashing for cache busting
+    filename: "[name].js", // Use content hashing for cache busting
     clean: true, // Clean the output directory on each build
   },
   module: {
