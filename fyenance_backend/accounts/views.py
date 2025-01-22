@@ -79,7 +79,18 @@ class UserLoginView(APIView):
             'error': 'Invalid credentials or form data',
             'form_errors': form.errors
         }, status=status.HTTP_400_BAD_REQUEST)
-
+    
+    
+class UserLogoutView(APIView):
+    """
+    Handles user logout by clearing their authentication tokens.
+    """
+    def post(self, request, *args, **kwargs):
+        """
+        Handle logout functionality.
+        """
+        # Since JWTs are stateless, clients must remove tokens from storage
+        return Response({"message": "Logged out successfully"}, status=status.HTTP_200_OK)
 
 def get_one_name(user_data, index):
     if not isinstance(user_data, dict):  # Ensure user_data is a dictionary

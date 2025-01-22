@@ -5,12 +5,13 @@ import About from "./pages/AboutPage"; // Import About page
 import DashboardPage from './pages/DashboardPages/MainDashboard'; // Import Dashboard page component
 import TransactionPage from './pages/TransactionPage';
 import SettingsPage from './pages/DashboardPages/SettingsPages/Settings'; // Correct path to your SettingsPage
+import PrivateRoute from './utils/PrivateRoute';
 
-import axios from 'axios';
+// import axios from 'axios';
 
-const api = axios.create({
-  baseURL: 'https://your-api-url.com', // Replace with your API URL
-})
+// const api = axios.create({
+//   baseURL: 'https://your-api-url.com', // Replace with your API URL
+// })
 
 function App() {
   return (
@@ -28,7 +29,15 @@ function App() {
           <Route path="/dashboard" element={<DashboardPage />} />
 
           {/* The Dashboard component is displayed for the /trnsaction page path */}
-          <Route path="/transactions" element={<TransactionPage />} />
+          {/* <Route path="/transactions" element={<TransactionPage />} /> */}
+          <Route
+            path="/transactions"
+            element={
+              <PrivateRoute>
+                <TransactionPage />
+              </PrivateRoute>
+            }
+          />
 
           {/* The Settings component is displayed for the /settings path */}
           <Route path="/settings" element={<SettingsPage />} />

@@ -59,6 +59,7 @@ if ENVIRONMENT == 'production' and len(sys.argv) > 0 and sys.argv[1] != 'collect
     }
 else:
     ALLOWED_HOSTS = ['*']
+    # CORS_ALLOWED_ORIGINS = ['*']
     DEBUG = True
     DATABASES = {
         "default": {

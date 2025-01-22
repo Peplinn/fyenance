@@ -9,9 +9,9 @@ urlpatterns = [
     # path('join', index),
     # path('create', index),
     # path('room/<str:roomCode>', index),
-    path('transactions/', index),
+    path('transactions/', freeView),
     # path('categories/', index),
-    path('budgets/', index),
+    path('budgets/', freeView),
     path('settings/', index),
-    path('dashboard/', index),
+    path('dashboard/', freeView),
 ]
